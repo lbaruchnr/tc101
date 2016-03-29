@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+long double rest=0,x=1;
+ double euler_calc(double x)
+ {
+long double e2;
+long double ee = 1,d,acm=1;
+double y=1, j;
+
+do
+{
+  e2 = ee;
+  ee = ee + (1/acm);
+  j = acm;
+  acm = acm + 1;
+  acm = acm * j;
+  d=ee - e2;
+}while (d>x);
+return ee;
+}
+int main()
+{
+long double param, z;
+cout<<"Dame el parametro: ";
+cin>>param;
+z=euler_calc(param);
+cout<<"El valor de e es: "<<z;
+return 0;
+}
