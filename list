@@ -1,0 +1,40 @@
+#include <iostream>
+#include<cmath>
+using std::cout;
+using std::cin;
+using std::endl;
+
+int getTotal(float numbers[],int numberofNumbers){
+	float answer=0.0;
+	for (int i=0; i<numberofNumbers ; i=i+1){
+		answer = answer + numbers[i];
+	}
+	return answer ;
+}
+int average(float numbers[], int numberofNumbers) {
+	float answer=0;
+   answer=(getTotal(numbers, numberofNumbers))/numberofNumbers;
+  return answer;
+}
+int standartdeviation(float numbers[], int numberofNumbers) {
+  float add=0;
+  for (int i=0; i<numberofNumbers; i=i+1){
+    float answer=pow(average(numbers, numberofNumbers)-numbers[i], 2);
+    add=add+answer; }
+    float s=sqrt(add/(numberofNumbers-1));
+    return s;
+  }
+
+int main () {
+	const int numberofNumbers = 10;
+	float numbers;
+	float x[numberofNumbers];
+	for (int i = 0; i<numberofNumbers; i++){
+		cout<<"dame un numero "<<endl;
+		cin>>x[i];
+	}
+  cout<<"la suma de los diguitos es "<<getTotal(x, numberofNumbers)<<endl;
+  cout<<"el promedio es "<<average(x, numberofNumbers)<<endl;
+  cout<<"la desviacion estanadar es "<<standartdeviation(x, numberofNumbers)<<endl;
+  return 0;
+}
