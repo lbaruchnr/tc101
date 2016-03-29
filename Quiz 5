@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+string is_palindrome(string palabra){
+  string res, reves;
+  int tamano;
+  cout << "Dame la palabra " << endl;
+  cin >> palabra;
+  tamano = palabra.length();        //cambia a unumeros por posiscion de letras
+  for(int i = tamano-1; i>=0; i--){
+   reves = reves + palabra[i];      //invierte la palabra 
+  }
+    cout << reves << endl;
+    if(palabra == reves)
+    {
+      res = "Es palindromo ";
+    }
+    else
+    {
+      res = "No es palindromo ";
+    }
+    return res;
+}
+
+int main(){
+  string res;
+  cout << is_palindrome(res) << endl;
+}
