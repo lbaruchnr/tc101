@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int mcd(int max, int min)
+{
+  int  resi;
+do{
+  resi= max%min;
+  max=min;
+  if(resi!=0)
+    {min=resi;}
+  }while(resi!=0);
+return min;
+}
+
+int main ()
+{
+  int max, min;
+  cout<<"ingrese el maximo numero "<<endl;
+  cin>>max;
+  cout<<"ingrese el minimo numero "<<endl;
+  cin>>min;
+  cout<<mcd(max,min)<<endl;
+}
