@@ -4,9 +4,9 @@
 using namespace std;
 
 int find_word(string pal, string tipo){
-  std::string line;
+  string line;
   int cont=0;
-  ifstream myfile(tipo);
+  ifstream myfile(tipo.c_str());
   //string myfile(tipo);
   if (myfile.is_open())
   {
