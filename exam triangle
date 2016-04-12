@@ -1,0 +1,38 @@
+// luis baruch navarro ramirez
+#include <iostream>
+using namespace std;
+
+void triangles(int num)
+{
+	int cont=0, control=1;
+	do
+	{
+		cont++;
+		cout<<"t";
+		while(cont==control)
+		{cont=0;
+		control++;
+		cout<<endl;
+		}
+	 }while(control!=num+1);
+	 if (control== num+1)
+	 {cont=control;
+	 	 do{
+	 	 cont--;
+	 	 cout<<"t";
+	 	 while(cont==0)
+	 	 	 {cout<<endl;
+	 	 	 control--;
+	 	 	 cont=control;}
+	 	 }while(control!=1);
+	 	 cout<<"t"<<endl;
+	 }
+}
+
+int main (){
+int num;
+cout<<"ingrese la mayor catidad"<<endl;
+cin>>num;
+triangles(num);
+return 0;
+}
