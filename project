@@ -1,0 +1,53 @@
+#include "libxl.h"
+#include <iostream>
+using namespace libxl;
+using namespace std;
+
+
+int main(){
+  double cuenta;
+  char cuen;
+  cout << "¿esta registrado?" << endl;
+  cout << "Y o N" << endl;
+  cin >> cuen;
+  Book* book = xlCreateBook();
+  if(cuen=='y'||cuen=='Y'){//condicion para cuenta ya registrada
+    if(book){
+      if(book->load("pru.xls")){//carga el xls
+          Sheet* sheet = book->getSheet(0);
+          cout<<"numero de cuenta"<<endl;
+          cin>> cuenta;
+          bool exito = sheet->writeNum(3, 1, cuenta);
+          //cout << "write was success? " << exito << endl;
+          book->save("pru.xls");
+          book->release();}
+        }
+      Book* book = xlCreateBook();
+      if(book){
+        if(book->load("pru.xls")){
+          Sheet* sheet = book->getSheet(0);
+          if(sheet){
+              //const char* s = sheet->readStr(2, 1);
+              //string f = sheet->readFormula(4, 1);
+              //cout << f << endl;
+              double s = sheet->readNum(4, 1);
+              cout << s << endl;
+              double d = sheet->readNum(5, 1);
+              cout << d << endl;}
+          }
+        }
+    }//cierra obcion con cuenta
+if(cuen=='n'||cuen=='N')
+{
+  if(book){
+    if(book->load("pru.xls")){//carga el xls
+      Sheet* sheet = book->getSheet(1);
+      cout<<"ingresa tu numero de cuenta nueva"<<endl;
+      cin>> cuenta;
+      bool nuevo = sheet->writeNum(1, 0, cuenta);
+      book->save("pru.xls");
+      book->release();
+    }
+  }
+}
+}
